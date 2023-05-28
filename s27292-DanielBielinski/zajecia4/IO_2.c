@@ -9,6 +9,10 @@ int main(int argc, char const *argv[]){
     int i;
     printf("Loading file: %s\n",argv[1]);
     file = fopen(argv[1],"r");
+    if(file == NULL){
+        printf("Error reading file");
+        return 0;
+    }
     while ((read_bytes = fread(buffer, sizeof(char), 16, file)) > 0) {
         printf("%08x ", address);
                 for (i = 0; i < 16; i++) {

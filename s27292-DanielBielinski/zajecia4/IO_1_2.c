@@ -16,10 +16,18 @@ int main(int argc, char const *argv[]) {
         return 0;
     } else {
         file = fopen(argv[1],"r");
+        if(file == NULL){
+            printf("Error reading file");
+            return 0;
+        }
     }
     fscanf(file,"%d",&numbercount);
     n = numbercount;
     digits = calloc(numbercount, sizeof(int));
+    if ( digits == NULL){
+        printf("Blad alokacji pamieci\n");
+        return 0;
+    }
     for(i = 0; i < n ; i++){
         fscanf(file,"%d", &currentnumber);
         digits[i] = currentnumber;
