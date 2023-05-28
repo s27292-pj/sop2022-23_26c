@@ -1,10 +1,8 @@
 #!/bin/bash
 name=$0
-if [[ $0 != *.sh ]]
+if [[ ! "$0" =~ *.sh ]]
 then
-echo $0
-text=$(sed -i 's/\.[^.]+$/.sh/' $0)
-echo "$text"
+	mv "$0" "${0}.sh"
 else
-	echo "jest git"
+	echo "jest to plik .sh"
 fi
