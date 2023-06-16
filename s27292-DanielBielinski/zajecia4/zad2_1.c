@@ -6,11 +6,11 @@ int main(int argc, char const *argv[]) {
     int n,i,number;
     int numarray[512];
     file = fopen("input.txt","r");
-    fscanf(file, "%d", &n);
     if(file == NULL){
         printf("Error reading file");
         return 0;
     }
+    fscanf(file, "%d", &n);
     for(i = 0; i < n ; i++){
         fscanf(file, "%d", &number);
         numarray[i] = number;

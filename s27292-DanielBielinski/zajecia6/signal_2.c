@@ -22,12 +22,16 @@ void signalSIGINT(int signal) {
 
 int main() {
     FILE* file;
-    int pid = getpid(),kill();
+    int pid = getpid();
     const char* filepath = "/tmp/lock.txt";
 
     if (access(filepath, F_OK) == 0) {
         signal(SIGUSR1, signalUSR1);
         file = fopen("/tmp/lock.txt", "r");
+        if(file == NULL){
+            printf("Error reading file");
+            return 0;
+        }
         kill(pid, SIGUSR1);
 
     } else {
